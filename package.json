@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "7.1.6",
+    "@babel/core": "^7.2.2",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
-    "babel-loader": "8.0.4",
+    "babel-loader": "^8.0.5",
     "babel-plugin-named-asset-import": "^0.3.0",
     "babel-preset-react-app": "^7.0.0",
     "bfj": "6.1.1",
@@ -49,7 +49,7 @@
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
-    "webpack": "4.19.1",
+    "webpack": "^4.29.0",
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
@@ -69,6 +69,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.3.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
