@@ -10,6 +10,7 @@ module.exports = {
     'no-console': 0,
     'import/no-named-as-default': 0,
     'import/no-named-as-default-member': 0,
+    'react/no-array-index-key': 'warn',
     'no-unused-vars': 'warn'
   },
   env: {
