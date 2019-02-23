@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React from 'react';
 import classes from './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl';
@@ -25,6 +24,7 @@ const buildControls = props => (
       />
     ))}
     <button
+      type="button"
       className={classes.OrderButton}
       disabled={!props.purchaseble}
       onClick={props.ordered}
