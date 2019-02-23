@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
@@ -21,8 +22,21 @@ class BurgerBuilder extends Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 4
+    totalPrice: 4,
+    purchaseble: false
   };
+
+  updatePurchaseState(ingredients) {
+    const sum = Object.keys(ingredients)
+      .map(igKey => {
+        return ingredients[igKey];
+      })
+      .reduce((sum, el) => {
+        return sum + el;
+      }, 0);
+
+    this.setState({ purchaseble: sum > 0 });
+  }
 
   addIngredientHandler = type => {
     const oldCount = this.state.ingredients[type];
@@ -35,6 +49,7 @@ class BurgerBuilder extends Component {
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice + priceAddition;
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
+    this.updatePurchaseState(updatedIngredients);
   };
 
   removeIngredientHandler = type => {
@@ -51,25 +66,28 @@ class BurgerBuilder extends Component {
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice - priceAddition;
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
+    this.updatePurchaseState(updatedIngredients);
   };
 
   render() {
     const disabledInfo = {
       ...this.state.ingredients
     };
+
     // eslint-disable-next-line no-restricted-syntax
     for (const key in disabledInfo) {
       if (!{}.hasOwnProperty.call(disabledInfo, key)) continue;
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
-    console.log(disabledInfo);
     return (
       <Aux>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}
+          purchaseble={this.state.purchaseble}
           disabled={disabledInfo}
+          price={this.state.totalPrice}
         />
       </Aux>
     );

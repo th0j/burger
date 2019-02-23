@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import classes from './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl';
@@ -11,6 +12,9 @@ const controls = [
 
 const buildControls = props => (
   <div className={classes.BuildControls}>
+    <p>
+      Current price: <strong>{props.price.toFixed(2)}</strong>
+    </p>
     {controls.map(ctrl => (
       <BuildControl
         key={ctrl.label}
@@ -20,6 +24,9 @@ const buildControls = props => (
         disabled={props.disabled[ctrl.type]}
       />
     ))}
+    <button className={classes.OrderButton} disabled={!props.purchaseble}>
+      ORDER NOW
+    </button>
   </div>
 );
 
