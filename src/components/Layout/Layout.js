@@ -13,6 +13,8 @@ class Layout extends Component {
     this.setState({ showSideDrawer: false });
   };
 
+  sideDrawerToggleHandler = () => {};
+
   render() {
     return (
       <Aux>

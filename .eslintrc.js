@@ -12,7 +12,9 @@ module.exports = {
     'import/no-named-as-default-member': 0,
     'react/no-array-index-key': 'warn',
     'no-unused-vars': 'warn',
-    'no-continue': 0
+    'no-continue': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0
   },
   env: {
     browser: true,
